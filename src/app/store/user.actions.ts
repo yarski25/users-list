@@ -12,6 +12,6 @@ export const UserActions = createActionGroup({
 export const UsersApiActions = createActionGroup({
   source: 'Users API',
   events: {
-    'Retrieved User List': props<{ books: ReadonlyArray<User> }>(),
+    'Retrieved User List': props<{ users: ReadonlyArray<User> }>(),
   },
 });
