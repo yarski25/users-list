@@ -3,9 +3,7 @@ import { User } from '../models/user.model';
 
 export const selectUsers = createFeatureSelector<ReadonlyArray<User>>('users');
 
-export const selectCollectionState = createFeatureSelector<
-  ReadonlyArray<string>
->('collection');
+export const selectCollectionState = createFeatureSelector<ReadonlyArray<string>>('collection');
 
 export const selectUserCollection = createSelector(
   selectUsers,

@@ -1,6 +1,6 @@
 import { createReducer, on } from '@ngrx/store';
 
-import { UsersApiActions } from './user.actions';
+import { UsersApiActions } from './users.actions';
 import { User } from '../models/user.model';
 
 export const initialState: ReadonlyArray<User> = [];

@@ -1,16 +1,5 @@
-<!-- <h1>Users table</h1>
-<table>
-  <thead></thead>
-  <tbody>
-    <tr *ngFor="let user of UsersList">
-      <td>{{ user.name }}</td>
-      <td>{{ user.address.city }}</td>
-    </tr>
-  </tbody>
-</table> -->
-
 <h1>Users table</h1>
-<div class="userItems" *ngFor="let user of UsersList | pairs">
+<div class="userItems" *ngFor="let user of usersList | pairs">
   <div class="userItem">
     <div class="userName">
       {{ user[0].name }}

@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { of, Observable, map } from 'rxjs';
+import { User } from '../models/user.model';
 
 @Injectable({
   providedIn: 'root',
@@ -15,7 +16,11 @@ export class UserService {
   };
   constructor(private httpClient: HttpClient) {}
 
-  getData(): Observable<any[]> {
-    return this.httpClient.get<any[]>(this.api);
-  }
+  getUsers(): Observable<Array<User>> {
+    return this.httpClient.get<User[]>(this.api);
+  } 
+
+  // getUsers(): Observable<Array<User>> {
+  //   return this.httpClient.get<{items: User[]}>(this.api).pipe(map((users)=> users.items || []));
+  // }
 }
