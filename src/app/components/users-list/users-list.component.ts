@@ -1,10 +1,7 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
 import { User } from 'src/app/models/user.model';
 import { UserService } from 'src/app/services/user.service';
-import { UsersApiActions } from 'src/app/state/users.actions';
-import { selectUsers } from 'src/app/state/users.selectors';
 
 @Component({
   selector: 'app-users-list',
