@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { IUser } from '@App/app/interfaces/user.interface';
+import { UsersApiActions } from '@App/app/state/users.actions';
+import { Component, Input } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { User } from 'src/app/models/user.model';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -10,25 +11,36 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class UsersListComponent {
 
+  @Input() users: ReadonlyArray<IUser> = [];
+
   //$users = this.store.select(selectUsers);
 
   //UsersList: Observable<User>[] = [];
 
-  usersList: User[]=[];
+  //user: IUser = {id: 0, name: "default", address:{city: "default"}};
+  //usersList: IUser[]=[];
 
-  constructor(private userService: UserService, private store: Store) {}
+  // constructor(private userService: UserService, private store: Store) {}
 
-  ngOnInit() {
-    this.userService.getUsers().subscribe((response: User[]) => {
-      this.usersList = response;
+  // ngOnInit() {
 
-      console.log(this.usersList);
-    });
+  //   this.userService
+  //   .getUsers()
+  //   .subscribe((users) =>
+  //     this.store.dispatch(UsersApiActions.retrievedUserList({ users }))
+  //   );
+  //   // this.userService.getUsers().subscribe((response: IUser[]) => {
+  //   //   this.usersList = response;
 
-    // this.userService
-    // .getUsers
-    // .subscribe((users) =>
-    //   this.store.dispatch(UsersApiActions.retrievedUserList({ users }))
-    // );
-  }
+  //   // this.userService.getUser(1).subscribe((response: IUser)=>{
+  //   //   this.user = response;
+
+  //   // })
+
+  //   // this.userService
+  //   // .getUsers
+  //   // .subscribe((users) =>
+  //   //   this.store.dispatch(UsersApiActions.retrievedUserList({ users }))
+  //   // );
+  // }
 }
