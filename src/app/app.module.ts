@@ -9,6 +9,8 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { AppComponent } from './app.component';
 import { UsersListComponent } from './components/users-list/users-list.component';
 import { PairsPipe } from './pipes/pairs.pipe';
+import { EffectsModule } from '@ngrx/effects';
+import { UsersEffects } from './effects/users.effects';
 //import { collectionReducer } from './state/collection.reducer';
 
 @NgModule({
@@ -18,7 +20,8 @@ import { PairsPipe } from './pipes/pairs.pipe';
   imports: [BrowserModule,
             HttpClientModule,
             StoreModule.forRoot({ users: usersReducer }),
-            StoreDevtoolsModule.instrument({maxAge: 25})],
+            StoreDevtoolsModule.instrument({maxAge: 25}),
+            EffectsModule.forRoot([UsersEffects])],
   providers: [],
   bootstrap: [AppComponent],
 })

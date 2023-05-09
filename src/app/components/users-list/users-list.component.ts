@@ -1,5 +1,5 @@
 import { IUser } from '@App/app/interfaces/user.interface';
-import { UsersApiActions } from '@App/app/state/users.actions';
+import { UsersApiActions } from '@App/app/actions/users-api.actions';
 import { Component, Input } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { UserService } from 'src/app/services/user.service';

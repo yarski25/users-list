@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { UserService } from './services/user.service';
 import { Store } from '@ngrx/store';
-import { UsersApiActions } from './state/users.actions';
+import { UsersApiActions } from './actions/users-api.actions';
 import { selectUsers } from './state/users.selectors';
+import { UsersActions } from './actions/users.actions';
 
 @Component({
   selector: 'app-root',
@@ -17,10 +18,12 @@ export class AppComponent {
   constructor(private userService: UserService, private store: Store) {}
  
   ngOnInit() {
-    this.userService
-      .getUsers()
-      .subscribe((users) =>
-        this.store.dispatch(UsersApiActions.retrievedUserList({ users }))
-      );
+    this.store.dispatch(UsersActions.usersOpened());
+
+    // this.userService
+    //   .getUsers()
+    //   .subscribe((users) =>
+    //     this.store.dispatch(UsersApiActions.usersLoadedSuccess({ users }))
+    //   );
   }
 }
